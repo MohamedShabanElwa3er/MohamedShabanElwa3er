@@ -3,11 +3,14 @@ import os
 import matplotlib.pyplot as plt
 
 GITHUB_USER = "MohamedShabanElwa3er"
-TOKEN = os.getenv("GITHUB_TOKEN")  # provided by GitHub Actions
+TOKEN = os.getenv("GITHUB_TOKEN")
 
 def get_language_stats():
     headers = {"Authorization": f"token {TOKEN}"}
-    repos = requests.get(f"https://api.github.com/users/{GITHUB_USER}/repos?per_page=100", headers=headers).json()
+    repos = requests.get(
+        f"https://api.github.com/users/{GITHUB_USER}/repos?per_page=100",
+        headers=headers
+    ).json()
 
     totals = {"C": 0, "C++": 0}
     for repo in repos:
@@ -26,14 +29,20 @@ def create_radial_chart(value, label, filename, color):
     ax.set_theta_offset(1.57)
     ax.set_theta_direction(-1)
 
-    # Background
+    # Background circle
     ax.barh(1, 2 * 3.1416, left=0, height=0.3, color="#2b2d42", alpha=0.2)
-    # Progress
-    ax.barh(1, (value/100) * 2 * 3.1416, left=0, height=0.3, color=color)
 
+    # Progress arc
+    ax.barh(1, (value / 100) * 2 * 3.1416, left=0, height=0.3, color=color)
+
+    # Remove axis
     ax.set_axis_off()
-    plt.text(0, 0, f"{value:.1f}%", ha="center", va="center", fontsize=20, fontweight="bold", color=color)
-    plt.text(0, -0.5, label, ha="center", va="center", fontsize=12, color="white")
+
+    # Center text
+    plt.text(0, 0, f"{value:.1f}%", ha="center", va="center",
+             fontsize=20, fontweight="bold", color=color)
+    plt.text(0, -0.5, label, ha="center", va="center",
+             fontsize=12, color="white")
 
     plt.savefig(filename, transparent=True)
     plt.close()
