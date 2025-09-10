@@ -1,40 +1,53 @@
+import subprocess
+import json
 import matplotlib.pyplot as plt
-import numpy as np
 
-# Example data (replace with real analysis later)
-languages = {
-    "C": 45,
-    "C++": 35,
-    "Rust": 15,
-    "Other": 5,
-}
-
-# Colors (neon style)
-colors = ["#00f7ff", "#ff2e63", "#f7ff00", "#9b59b6"]
-
-# Create figure
-fig, ax = plt.subplots(figsize=(6, 6), subplot_kw={'projection': 'polar'})
-fig.patch.set_facecolor("#0d1117")  # GitHub dark background
-ax.set_facecolor("#0d1117")
-ax.set_xticks([])
-ax.set_yticks([])
-ax.spines.clear()
-
-# Draw arcs
-start_angle = 0
-for (lang, value), color in zip(languages.items(), colors):
-    end_angle = start_angle + (value / 100) * 2 * np.pi
-    ax.barh(
-        y=1, width=end_angle - start_angle,
-        left=start_angle, height=0.3,
-        color=color, edgecolor="white", linewidth=2
+def get_language_stats():
+    """Run cloc to get language breakdown as JSON"""
+    result = subprocess.run(
+        ["cloc", "--json", "--quiet", "."],
+        capture_output=True,
+        text=True
     )
-    start_angle = end_angle
+    data = json.loads(result.stdout)
+    stats = {}
+    total = 0
 
-# Add numeric total in the center
-total = sum(languages.values())
-ax.text(0, 0, f"{total}%", ha="center", va="center",
-        fontsize=28, fontweight="bold", color="white")
+    for lang, info in data.items():
+        if isinstance(info, dict) and "code" in info:
+            stats[lang] = info["code"]
+            total += info["code"]
 
-# Save SVG
-plt.savefig("radial-all.svg", format="svg", bbox_inches="tight", transparent=True)
+    # Convert to %
+    percentages = {lang: round((count / total) * 100, 2) for lang, count in stats.items()}
+    return percentages
+
+def create_radial_chart(value, label, filename, color):
+    fig, ax = plt.subplots(figsize=(4, 4), subplot_kw={'projection': 'polar'})
+    ax.set_theta_offset(1.57)
+    ax.set_theta_direction(-1)
+
+    # Background circle
+    ax.barh(1, 2 * 3.1416, left=0, height=0.3, color="#2b2d42", alpha=0.2)
+
+    # Progress arc
+    ax.barh(1, (value/100) * 2 * 3.1416, left=0, height=0.3, color=color)
+
+    # Remove axis
+    ax.set_axis_off()
+
+    # Add % number in center
+    plt.text(0, 0, f"{value:.0f}%", ha="center", va="center", fontsize=20, fontweight="bold", color=color)
+    plt.text(0, -0.5, label, ha="center", va="center", fontsize=12, color="white")
+
+    plt.savefig(filename, transparent=True)
+    plt.close()
+
+if __name__ == "__main__":
+    stats = get_language_stats()
+
+    c_value = stats.get("C", 0)
+    cpp_value = stats.get("C++", 0)
+
+    create_radial_chart(c_value, "C Projects", "radial-c.svg", "#00b4d8")
+    create_radial_chart(cpp_value, "C++ Projects", "radial-cpp.svg", "#ff006e")
