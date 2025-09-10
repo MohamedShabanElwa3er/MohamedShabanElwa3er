@@ -1,22 +1,25 @@
-name: Generate Radial Charts
+name: Generate Radial Language Charts
 
 on:
-  workflow_dispatch:
   schedule:
-    - cron: "0 0 * * *" # Run daily
-
-permissions:
-  contents: write   # ✅ Required to push changes
+    - cron: "0 0 * * *"   # Run daily at midnight UTC
+  workflow_dispatch:       # Allow manual runs
 
 jobs:
-  build:
+  generate-radials:
     runs-on: ubuntu-latest
-    steps:
-      # 1) Checkout repo
-      - name: Checkout repo
-        uses: actions/checkout@v3
+    permissions:
+      contents: write
 
-      # 2) Set up Python
+    steps:
+      # 1) Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      # 2) Setup Python
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -24,22 +27,29 @@ jobs:
 
       # 3) Install dependencies
       - name: Install dependencies
-        run: pip install matplotlib
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cloc
+          pip install matplotlib
 
-      # 4) Remove old radial charts
+      # 4) Remove old charts (ignore if not exist)
       - name: Remove old radial charts
         run: |
           git rm -f --ignore-unmatch radial-c.svg radial-cpp.svg || true
 
-      # 5) Generate new radial charts
-      - name: Generate new radial charts
+      # 5) Generate new charts
+      - name: Generate radial charts
         run: python .github/scripts/generate_radials.py
 
-      # 6) Commit and push new charts
+      # 6) Commit & push charts
       - name: Commit and push charts
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add radial-*.svg || true
-          git commit -m "chore: update radial charts [skip ci]" || echo "No changes to commit"
+          git commit -m "chore: update C & C++ radial charts [skip ci]" || echo "No changes to commit"
           git push origin HEAD:main
+
+      # 7) Debug listing
+      - name: List generated files
+        run: ls -la radial-*.svg || echo "No radial charts generated"
