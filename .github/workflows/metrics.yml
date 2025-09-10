@@ -13,13 +13,19 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      # Generate C metrics (radial chart)
+      # 🧹 Clean up old SVG files before regeneration
+      - name: Remove old metrics charts
+        run: |
+          rm -f metrics-c.svg
+          rm -f metrics-cpp.svg
+
+      # 📊 Generate C metrics (radial chart)
       - name: Generate C Metrics
         uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           filename: metrics-c.svg
-          output_action: commit   # ✅ let metrics handle commits
+          output_action: commit
           base: ""
           plugin_languages: yes
           plugin_languages_sections: most-used
@@ -28,13 +34,13 @@ jobs:
           plugin_languages_categories: programming
           plugin_languages_chart_type: radial
 
-      # Generate C++ metrics (radial chart)
+      # 📊 Generate C++ metrics (radial chart)
       - name: Generate C++ Metrics
         uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           filename: metrics-cpp.svg
-          output_action: commit   # ✅ let metrics handle commits
+          output_action: commit
           base: ""
           plugin_languages: yes
           plugin_languages_sections: most-used
