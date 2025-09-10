@@ -159,31 +159,6 @@
 ![VectorCast](https://img.shields.io/badge/VectorCast-008000?style=for-the-badge)
 ![Davinci](https://img.shields.io/badge/Davinci_Tools-blue?style=for-the-badge)
 
-### Concepts
-
-- 🚗 AUTOSAR (Com Stack, Memory Stack, Diagnostic)
-- 🧵 Multithreading & Synchronization
-- 🧪 Unit Testing (VectorCast)
-- ⚙️ SDLC, OSEK, Embedded Debugging
-
----
-
-## 📂 Projects
-
-### 🔹 Linux Image Customization & Network Boot (Raspberry Pi 3B+)
-- Created Yocto-based Linux distro with Ethernet-based kernel loading.
-- Modified U-Boot and device tree; mounted rootfs over NFS.
-
-### 🔹 Linux Device Driver – LED Control
-- Developed a Linux kernel module for LED control via GPIO.
-
-### 🔹 Vehicle Tracking System (TI-RTOS)
-- Used GPS/GSM modules with TM4C123G6; built using RTOS for real-time task management.
-
-### 🔹 Task Manager CLI App (C++)
-- Built a modern C++17 command-line task manager with OOP and file handling.
-
----
 
 ## 📊 GitHub Stats
 
