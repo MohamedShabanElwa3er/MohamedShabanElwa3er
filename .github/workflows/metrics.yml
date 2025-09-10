@@ -1,17 +1,15 @@
-name: GitHub Radial Stats
+name: Radial Language Charts
 
 on:
   schedule:
-    - cron: "0 0 * * *"   # run daily at midnight UTC
-  workflow_dispatch:       # allow manual runs
+    - cron: "0 0 * * *"   # daily at midnight UTC
+  workflow_dispatch:       # allow manual trigger
 
 jobs:
-  radial-stats:
+  generate-radials:
     runs-on: ubuntu-latest
     permissions:
-      contents: write       # ✅ allow committing new SVGs
-      pull-requests: write  # optional
-      actions: read
+      contents: write   # ✅ required for committing back
 
     steps:
       # 1) Checkout repository
@@ -21,48 +19,38 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
-      # 2) Cleanup old SVGs (tracked + untracked)
+      # 2) Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      # 3) Install dependencies
+      - name: Install dependencies
+        run: pip install matplotlib
+
+      # 4) Remove old radial charts
       - name: Remove old radial charts
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
           git rm -f --ignore-unmatch radial-c.svg radial-cpp.svg radial-all.svg || true
-          rm -f radial-c.svg radial-cpp.svg radial-all.svg || true
-
           if git diff --cached --quiet; then
             echo "No old radial charts to remove"
           else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git commit -m "chore: remove old radial charts [skip ci]"
             git push origin HEAD:main
           fi
 
-      # 3) Generate C radial chart (donut)
-      - name: Generate C donut chart
-        run: |
-          curl -o radial-c.svg "https://github-readme-stats.vercel.app/api/top-langs/?username=MohamedShabanElwa3er&layout=donut&langs_count=10&theme=tokyonight&hide=cpp,python,java"
-
-      # 4) Generate C++ radial chart (donut)
-      - name: Generate C++ donut chart
-        run: |
-          curl -o radial-cpp.svg "https://github-readme-stats.vercel.app/api/top-langs/?username=MohamedShabanElwa3er&layout=donut&langs_count=10&theme=tokyonight&hide=c,python,java"
-
-      # 5) Generate Overall radial chart (all langs)
-      - name: Generate Overall donut chart
-        run: |
-          curl -o radial-all.svg "https://github-readme-stats.vercel.app/api/top-langs/?username=MohamedShabanElwa3er&layout=donut&langs_count=10&theme=tokyonight"
+      # 5) Generate new radial charts
+      - name: Generate new radial charts
+        run: python scripts/generate_radials.py
 
       # 6) Commit and push new charts
-      - name: Commit new radial charts
+      - name: Commit and push charts
         run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add radial-c.svg radial-cpp.svg radial-all.svg
-          if git diff --cached --quiet; then
-            echo "No new charts to commit"
-          else
-            git commit -m "chore: update radial charts [skip ci]"
-            git push origin HEAD:main
-          fi
-
-      # 7) Final check
-      - name: Show generated files
-        run: ls -la radial-*.svg
+          git commit -m "chore: update radial charts [skip ci]" || echo "No new charts to commit"
+          git push origin HEAD:main
