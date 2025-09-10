@@ -113,52 +113,42 @@
 
 ## 💻 Technical Skills
 
-- Proficient in **C** and **Embedded C**  
-- Proficient in **C++** with strong understanding of **OOP**  
-- ARM Cortex M3 & M4 microcontrollers  
-- AVR MCU Peripherals (ADC, Timer, EEPROM, DIO)  
-- Communication Protocols: UART, SPI, I2C, CAN, CAN FD, LIN, UDS  
-- AUTOSAR knowledge (Memory Stack, COM Stack, Diagnostic Stack)  
-- Linux environment & Embedded Linux development  
-- OSEK RTOS knowledge  
-- Basic knowledge of **CAPL Language**  
-- RTOS development  
-
----
-
-## 🛠️ Tools & IDEs
-
-- Canoe  
-- Git  
-- Saleae Logic Analyzer  
-- DaVinci Developer & Configurator  
-- Jenkins  
-- VS Code  
-- DOORS  
-- Eclipse  
-- VectorCAST  
-- KlocWork  
-
----
-
-## 🔧 Skills & Technologies
-
-### Languages & Frameworks
-
 ![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
+![Embedded C](https://img.shields.io/badge/Embedded_C-00599C?style=for-the-badge)
 ![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
+![OOP](https://img.shields.io/badge/OOP-008080?style=for-the-badge)
+![ARM Cortex](https://img.shields.io/badge/ARM_Cortex-M3/M4-0078D7?style=for-the-badge&logo=arm)
+![AVR](https://img.shields.io/badge/AVR-FF0000?style=for-the-badge)
+![UART](https://img.shields.io/badge/UART-6A0DAD?style=for-the-badge)
+![SPI](https://img.shields.io/badge/SPI-FF8C00?style=for-the-badge)
+![I2C](https://img.shields.io/badge/I2C-00CED1?style=for-the-badge)
+![CAN](https://img.shields.io/badge/CAN-1E90FF?style=for-the-badge)
+![LIN](https://img.shields.io/badge/LIN-32CD32?style=for-the-badge)
+![UDS](https://img.shields.io/badge/UDS-FF4500?style=for-the-badge)
+![AUTOSAR](https://img.shields.io/badge/AUTOSAR-FF5733?style=for-the-badge)
+![Linux](https://img.shields.io/badge/Linux-000000?style=for-the-badge&logo=linux&logoColor=white)
+![Embedded Linux](https://img.shields.io/badge/Embedded_Linux-000000?style=for-the-badge)
+![OSEK](https://img.shields.io/badge/OSEK-4285F4?style=for-the-badge)
+![CAPL](https://img.shields.io/badge/CAPL-34A853?style=for-the-badge)
 ![RTOS](https://img.shields.io/badge/RTOS-3DDC84?style=for-the-badge)
-![Embedded Linux](https://img.shields.io/badge/Linux-000000?style=for-the-badge&logo=linux&logoColor=white)
-![YOCTO](https://img.shields.io/badge/Yocto_Project-9B4F96?style=for-the-badge)
 
-### Tools & Platforms
+---
+
+### 🛠️ Tools & Platforms
 
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white)
 ![CANoe](https://img.shields.io/badge/Vector_CANoe-FF8700?style=for-the-badge)
-![VectorCast](https://img.shields.io/badge/VectorCast-008000?style=for-the-badge)
-![Davinci](https://img.shields.io/badge/Davinci_Tools-blue?style=for-the-badge)
+![VectorCAST](https://img.shields.io/badge/VectorCast-008000?style=for-the-badge)
+![DaVinci](https://img.shields.io/badge/DaVinci_Developer-blue?style=for-the-badge)
+![DaVinci Configurator](https://img.shields.io/badge/DaVinci_Configurator-blue?style=for-the-badge)
+![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![DOORS](https://img.shields.io/badge/IBM_DOORS-0072C6?style=for-the-badge)
+![Eclipse](https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=eclipse&logoColor=white)
+![Saleae](https://img.shields.io/badge/Saleae-FF6C37?style=for-the-badge)
+![KlocWork](https://img.shields.io/badge/Klocwork-FF5733?style=for-the-badge)
 
+---
 
 ## 📊 GitHub Stats
 
