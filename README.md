@@ -6,12 +6,11 @@
 <p align="center">
   <a href="mailto:mohamedshabanelwa3er@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
   <a href="https://linkedin.com/in/mohamed-shaban-wa3er"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
-  <a href="https://github.com/MohamedShabanElwa3er"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a>
 </p>
 
 ---
 
-👨‍💻 About Me
+## 👨‍💻 About Me
 
 🎓 B.Sc. in Electronics and Communications Engineering – Fayoum University (2016–2021)
 
@@ -26,12 +25,19 @@
 
 - **Embedded Systems Development**
   
-  ▪ Designed, implemented, and configured embedded software components in **C/C++**, including **AUTOSAR modules** (DCM, NVM, COM).  
-  ▪ Supported **3 OEM projects** (Stellantis, PSA, RSA) by resolving **MISRA C violations** and ensuring compliance with **safety-critical standards**.  
-  ▪ Developed **C++ modules** with focus on **performance, memory efficiency, and robust architecture**.  
-  ▪ Applied **multithreading techniques** (mutexes, semaphores) and resolved **race conditions**.  
-  ▪ Used **modern C++ (C++11/14/17)** features: smart pointers, lambdas, STL, RAII.  
-  ▪ Applied **OOP principles**: encapsulation, inheritance, polymorphism, abstraction.
+  ▪ Designed, implemented, and configured key embedded software components using **C and C++**, including **AUTOSAR modules** (DCM, NVM, COM stacks).
+
+  ▪ Supported **3 OEM projects** (Stellantis, PSA, RSA) by resolving **MISRA C violations** and ensuring compliance with **safety-critical automotive software standards**.
+
+  ▪ Contributed to **C++ module development** focusing on **performance optimization, memory efficiency, and robust architecture** for safety-critical applications.  
+
+  ▪ Addressed and resolved **race conditions and synchronization issues** by applying best practices in **thread management and shared resource access**.  
+
+  ▪ Created and improved **C++ components** using **multithreading techniques** (mutexes, semaphores) and proactively addressed race conditions.  
+
+  ▪ Demonstrated proficiency in **modern C++ (C++11/14/17)** features, including smart pointers, lambdas, STL algorithms, and **RAII principles**.  
+
+  ▪ Applied **object-oriented design principles** (encapsulation, inheritance, polymorphism, abstraction) to build **scalable and maintainable C++ modules**.  
 
 - **Unit Testing**
   
