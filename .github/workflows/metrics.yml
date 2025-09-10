@@ -1,86 +1,68 @@
-name: GitHub Metrics
+name: GitHub Radial Stats
 
 on:
   schedule:
-    - cron: "0 0 * * *"   # daily at midnight UTC
+    - cron: "0 0 * * *"   # run daily at midnight UTC
   workflow_dispatch:       # allow manual runs
 
 jobs:
-  github-metrics:
+  radial-stats:
     runs-on: ubuntu-latest
     permissions:
-      contents: write        # ✅ allow committing files
-      pull-requests: write   # optional
+      contents: write       # ✅ allow committing new SVGs
+      pull-requests: write  # optional
       actions: read
 
     steps:
-      # 1) Checkout full repo
+      # 1) Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
-      # 2) Remove old metrics (tracked + untracked)
-      - name: Remove old metrics files
+      # 2) Cleanup old SVGs (tracked + untracked)
+      - name: Remove old radial charts
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # Remove tracked files (if exist)
-          git rm -f --ignore-unmatch metrics-c.svg metrics-cpp.svg || true
+          git rm -f --ignore-unmatch radial-c.svg radial-cpp.svg radial-all.svg || true
+          rm -f radial-c.svg radial-cpp.svg radial-all.svg || true
 
-          # Remove untracked files (workspace only)
-          rm -f metrics-c.svg metrics-cpp.svg || true
-
-          # Commit the removal if needed
           if git diff --cached --quiet; then
-            echo "No tracked metrics files to remove"
+            echo "No old radial charts to remove"
           else
-            git commit -m "chore(metrics): remove old metrics svgs before regenerate [skip ci]"
+            git commit -m "chore: remove old radial charts [skip ci]"
             git push origin HEAD:main
           fi
 
-      # 3) Verify workspace is clean
-      - name: Verify cleanup (debug)
+      # 3) Generate C radial chart (donut)
+      - name: Generate C donut chart
         run: |
-          echo "git status:"
-          git status --porcelain
-          echo "metrics files now:"
-          ls -la metrics-*.svg || echo "✅ no old metrics files"
+          curl -o radial-c.svg "https://github-readme-stats.vercel.app/api/top-langs/?username=MohamedShabanElwa3er&layout=donut&langs_count=10&theme=tokyonight&hide=cpp,python,java"
 
-      # 4) Generate C metrics (radial)
-      - name: Generate C Metrics (radial)
-        uses: lowlighter/metrics@v3.34   # ✅ pinned version
-        with:
-          token: ${{ secrets.METRICS_TOKEN }}
-          filename: metrics-c.svg
-          output_action: commit
-          base: ""
-          plugin_languages: yes
-          plugin_languages_sections: most-used
-          plugin_languages_filter: c
-          plugin_languages_limit: 10
-          plugin_languages_categories: programming
-          plugin_languages_chart: radial
-
-      # 5) Generate C++ metrics (radial)
-      - name: Generate C++ Metrics (radial)
-        uses: lowlighter/metrics@v3.34   # ✅ pinned version
-        with:
-          token: ${{ secrets.METRICS_TOKEN }}
-          filename: metrics-cpp.svg
-          output_action: commit
-          base: ""
-          plugin_languages: yes
-          plugin_languages_sections: most-used
-          plugin_languages_filter: cpp
-          plugin_languages_limit: 10
-          plugin_languages_categories: programming
-          plugin_languages_chart: radial
-
-      # 6) Final listing for debug
-      - name: Final list (debug)
+      # 4) Generate C++ radial chart (donut)
+      - name: Generate C++ donut chart
         run: |
-          echo "Final files in repo root:"
-          ls -la
+          curl -o radial-cpp.svg "https://github-readme-stats.vercel.app/api/top-langs/?username=MohamedShabanElwa3er&layout=donut&langs_count=10&theme=tokyonight&hide=c,python,java"
+
+      # 5) Generate Overall radial chart (all langs)
+      - name: Generate Overall donut chart
+        run: |
+          curl -o radial-all.svg "https://github-readme-stats.vercel.app/api/top-langs/?username=MohamedShabanElwa3er&layout=donut&langs_count=10&theme=tokyonight"
+
+      # 6) Commit and push new charts
+      - name: Commit new radial charts
+        run: |
+          git add radial-c.svg radial-cpp.svg radial-all.svg
+          if git diff --cached --quiet; then
+            echo "No new charts to commit"
+          else
+            git commit -m "chore: update radial charts [skip ci]"
+            git push origin HEAD:main
+          fi
+
+      # 7) Final check
+      - name: Show generated files
+        run: ls -la radial-*.svg
