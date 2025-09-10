@@ -44,7 +44,7 @@ jobs:
 
       # 5) Generate new radial charts
       - name: Generate new radial charts
-        run: python scripts/generate_radials.py
+        run: python .github/scripts/generate_radials.py
 
       # 6) Commit and push new charts
       - name: Commit and push charts
