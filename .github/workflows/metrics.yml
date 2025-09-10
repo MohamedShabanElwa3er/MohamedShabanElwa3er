@@ -1,20 +1,20 @@
 name: GitHub Metrics
 
 on:
-  # Runs every day at midnight UTC
   schedule:
-    - cron: "0 0 * * *"
-  # Allow manual trigger
-  workflow_dispatch:
+    - cron: "0 0 * * *"   # Run daily at midnight UTC
+  workflow_dispatch:       # Allow manual trigger
 
 jobs:
   github-metrics:
     runs-on: ubuntu-latest
     permissions:
-      contents: write   # allow committing generated files
+      contents: write   # Needed to push files back
     steps:
-      # Checkout your repo
+      # Checkout the repo with write access
       - uses: actions/checkout@v3
+        with:
+          persist-credentials: false
 
       # Generate C metrics
       - name: Generate C Metrics
@@ -28,8 +28,6 @@ jobs:
           plugin_languages_filter: c
           plugin_languages_limit: 10
           plugin_languages_categories: programming
-          plugin_languages_analysis_timeout: 30
-          plugin_languages_other: false
 
       # Generate C++ metrics
       - name: Generate C++ Metrics
@@ -43,14 +41,14 @@ jobs:
           plugin_languages_filter: cpp
           plugin_languages_limit: 10
           plugin_languages_categories: programming
-          plugin_languages_analysis_timeout: 30
-          plugin_languages_other: false
 
-      # Commit results back to repo
+      # Commit and push results
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add metrics-c.svg metrics-cpp.svg
           git commit -m "chore: update metrics charts [skip ci]" || echo "No changes to commit"
-          git push
+          git push origin HEAD:main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
