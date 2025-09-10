@@ -38,16 +38,16 @@ def create_radial_chart(value, label, filename, color):
     # Remove axis
     ax.set_axis_off()
 
-    # Center text
-    plt.text(0, 0, f"{value:.1f}%", ha="center", va="center",
+    # Center text: language name + %
+    plt.text(0, 0.2, label, ha="center", va="center",
+             fontsize=14, fontweight="bold", color="white")
+    plt.text(0, -0.2, f"{value:.1f}%", ha="center", va="center",
              fontsize=20, fontweight="bold", color=color)
-    plt.text(0, -0.5, label, ha="center", va="center",
-             fontsize=12, color="white")
 
     plt.savefig(filename, transparent=True)
     plt.close()
 
 if __name__ == "__main__":
     stats = get_language_stats()
-    create_radial_chart(stats["C"], "C Projects", "radial-c.svg", "#00b4d8")
-    create_radial_chart(stats["C++"], "C++ Projects", "radial-cpp.svg", "#ff006e")
+    create_radial_chart(stats["C"], "C", "radial-c.svg", "#00b4d8")
+    create_radial_chart(stats["C++"], "C++", "radial-cpp.svg", "#ff006e")
