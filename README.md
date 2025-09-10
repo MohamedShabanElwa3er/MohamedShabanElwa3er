@@ -11,23 +11,53 @@
 
 ---
 
-## 👨‍💻 About Me
+👨‍💻 About Me
 
-🎓 Graduate in Electronics and Communications Engineering (2016–2021)
+🎓 B.Sc. in Electronics and Communications Engineering – Fayoum University (2016–2021)
 
-🛠️ I work as an Embedded Software Developer, building systems close to the hardware. My experience includes:
+🔍 Passionate about low-level programming, real-time performance, and software quality in safety-critical embedded systems
 
-Developing AUTOSAR modules like DCM, NVM, and COM
+💡 Building expertise across AUTOSAR, OSEK/RTOS, and Embedded Linux (Yocto, drivers, system customization)
 
-Working with OSEK-based systems, RTOS (TI-RTOS), and Embedded Linux/Yocto
+💼 Experience
 
-Ensuring software quality with MISRA C and KlocWork
+Valeo Egypt — Embedded Software Engineer (Internship)
+📅 Dec 2023 – May 2025
 
-Writing robust, efficient code in C and modern C++ (11/14/17)
+Designed, implemented, and configured embedded software components in C/C++, including AUTOSAR modules (DCM, NVM, COM)
 
-🔍 I’m passionate about real-time systems, performance optimization, and building reliable embedded platforms.
+Supported 3 OEM projects (Stellantis, PSA, RSA) by resolving MISRA C violations and ensuring compliance with safety-critical standards
 
-💡 Always curious about blending low-level programming, Linux platforms, and AUTOSAR/OSEK standards into efficient embedded solutions.
+Developed modern C++ modules with focus on performance optimization, memory efficiency, and robust architecture (C++11/14/17: STL, RAII, smart pointers, lambdas)
+
+Applied multithreading techniques (mutexes, semaphores) to resolve race conditions and synchronization issues
+
+Designed and executed unit tests using VectorCAST for embedded C/C++ modules
+
+Performed static analysis (KlocWork, MISRA) to detect bugs, vulnerabilities, and coding violations early in development
+
+Conducted timing analysis using Saleae Logic Analyzer and advanced debugging for real-time optimization
+
+Tools & Platforms: DaVinci Developer/Configurator, C/C++, Embedded Linux, Yocto, static analysis tools, real-time debugging
+
+📚 Training & Certifications
+
+Digital Egypt Youth Initiative – NTI (Automotive Embedded Systems Track, 4 months)
+📅 Jun 2023 – Sep 2023
+
+AVR peripherals (ATmega32), ARM peripherals (NVIC, SysTick), AUTOSAR basics, SDLC
+
+Business skills: Soft skills, Business English, Project Management, Freelancing
+
+Full Embedded Linux Diploma
+📅 Jan 2024 – Apr 2024
+
+Linux Fundamentals, Yocto Project, device drivers, embedded Linux customization, application development
+
+Full Embedded Systems Diploma
+📅 Mar 2023 – Jun 2023
+
+C/Embedded C, AVR MCU peripherals (ADC, Timer, DIO), RTOS basics, SDLC
 
 ## 🔧 Skills & Technologies
 
