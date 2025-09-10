@@ -64,7 +64,8 @@ jobs:
           plugin_languages_filter: c
           plugin_languages_limit: 10
           plugin_languages_categories: programming
-          plugin_languages_chart: radial   # ✅ fixed key
+          plugin_languages_indepth: yes       # ✅ required for radial
+          plugin_languages_chart: radial      # ✅ radial chart
 
       # 6) Generate C++ metrics (radial)
       - name: Generate C++ Metrics (radial)
@@ -79,7 +80,8 @@ jobs:
           plugin_languages_filter: cpp
           plugin_languages_limit: 10
           plugin_languages_categories: programming
-          plugin_languages_chart: radial   # ✅ fixed key
+          plugin_languages_indepth: yes       # ✅ required for radial
+          plugin_languages_chart: radial      # ✅ radial chart
 
       # 7) Final listing for debug
       - name: Final list (debug)
