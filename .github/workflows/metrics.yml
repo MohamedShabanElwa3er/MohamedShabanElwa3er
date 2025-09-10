@@ -1,9 +1,9 @@
-name: Generate Radial Language Charts (robust cleanup)
+name: Generate Radial Language Charts
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 0 * * *"  # daily
+    - cron: "0 0 * * *" # Runs daily at midnight
 
 permissions:
   contents: write
@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository (full)
+      - name: Checkout repository
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
@@ -24,43 +24,40 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Install Python deps
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install matplotlib requests
 
-      - name: DEBUG: show current files (before cleanup)
+      - name: Debug - list current files
         run: |
-          echo "===== repo root files ====="
+          echo "===== repo root ====="
           ls -la
-          echo "===== .github contents ====="
-          ls -la .github || true
-          echo "===== tracked radial files (git ls-files) ====="
+          echo "===== .github/scripts ====="
+          ls -la .github/scripts || true
+          echo "===== tracked radial files ====="
           git ls-files | grep -E '(^|/)radial-(c|cpp|all|test)\.svg$' || echo "none tracked"
 
-      - name: Remove tracked old radial SVGs (safe)
+      - name: Remove old radial SVGs
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # remove any tracked radial-*.svg no matter where in repo they are
           tracked_files=$(git ls-files | grep -E '(^|/)radial-(c|cpp|all|test)\.svg$' || true)
           if [ -n "$tracked_files" ]; then
             echo "Removing tracked files:"
             echo "$tracked_files"
             echo "$tracked_files" | xargs -r git rm -f --
           else
-            echo "No tracked radial files to remove"
+            echo "No tracked radial files found"
           fi
 
-          # remove untracked copies in common locations
           rm -f radial-*.svg .github/radial-*.svg metrics-*.svg || true
 
-          # commit removals if any
           if git diff --cached --quiet; then
             echo "No tracked removals to commit"
           else
-            git commit -m "chore(metrics): remove old radial svgs before regenerate [skip ci]"
+            git commit -m "chore(metrics): remove old radial svgs [skip ci]"
             git push origin HEAD:main
           fi
 
@@ -68,41 +65,35 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # adjust the script path if you store it elsewhere
           python .github/scripts/generate_radials.py
 
-      - name: Move generated charts to repo root (if generated in .github/)
+      - name: Move generated charts to repo root
         run: |
-          # move any generated .github/radial-*.svg to repo root so README uses './radial-c.svg'
           if [ -f .github/radial-c.svg ]; then mv .github/radial-c.svg ./radial-c.svg; fi
           if [ -f .github/radial-cpp.svg ]; then mv .github/radial-cpp.svg ./radial-cpp.svg; fi
-          # also move radial-all or others if present
           if [ -f .github/radial-all.svg ]; then mv .github/radial-all.svg ./radial-all.svg; fi
 
-      - name: DEBUG: show generated files
+      - name: Debug - after generation
         run: |
-          echo "===== after generation ====="
-          ls -la radial-*.svg || echo "no radial files in repo root"
-          echo "git status:"
+          echo "===== repo root after generation ====="
+          ls -la radial-*.svg || echo "No radial SVGs in root"
+          echo "===== git status ====="
           git status --porcelain
 
-      - name: Commit and push new charts (only if changed)
+      - name: Commit and push new charts
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # add only existing radial files
           git add radial-*.svg || true
-
-          # If nothing staged, do not fail; otherwise commit & push
           if git diff --cached --quiet; then
-            echo "No new/changed radial svg files to commit"
+            echo "No new/updated radials to commit"
           else
-            git commit -m "chore(metrics): update radial svgs [skip ci]"
+            git commit -m "chore(metrics): update radial charts [skip ci]"
             git push origin HEAD:main
           fi
 
-      - name: Final listing
+      - name: Final Debug - show repo files
         run: |
-          echo "===== final repo root files ====="
+          echo "===== final repo root ====="
           ls -la
