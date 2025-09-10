@@ -28,17 +28,17 @@ jobs:
       # 3) Install dependencies
       - name: Install dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install -y cloc
-          pip install matplotlib
+          pip install matplotlib requests
 
-      # 4) Remove old charts (ignore if not exist)
+      # 4) Remove old charts
       - name: Remove old radial charts
         run: |
           git rm -f --ignore-unmatch radial-c.svg radial-cpp.svg || true
 
       # 5) Generate new charts
       - name: Generate radial charts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python .github/scripts/generate_radials.py
 
       # 6) Commit & push charts
