@@ -1,9 +1,12 @@
 name: Generate Radial Language Charts
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron: "0 0 * * *"   # Run daily at midnight UTC
-  workflow_dispatch:       # Allow manual runs
+    - cron: "0 0 * * *" # daily
+
+permissions:
+  contents: write
 
 jobs:
   generate-radials:
@@ -12,44 +15,35 @@ jobs:
       contents: write
 
     steps:
-      # 1) Checkout repository
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
-      # 2) Setup Python
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.x"
 
-      # 3) Install dependencies
-      - name: Install dependencies
-        run: |
-          pip install matplotlib requests
+      - name: Install Python deps
+        run: pip install matplotlib requests
 
-      # 4) Remove old charts
-      - name: Remove old radial charts
+      - name: Remove old charts (ignore if missing)
         run: |
-          git rm -f --ignore-unmatch radial-c.svg radial-cpp.svg || true
+          git rm -f --ignore-unmatch .github/radial-c.svg .github/radial-cpp.svg || true
 
-      # 5) Generate new charts
       - name: Generate radial charts
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python .github/scripts/generate_radials.py
 
-      # 6) Commit & push charts
       - name: Commit and push charts
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add radial-*.svg || true
+          git add .github/radial-c.svg .github/radial-cpp.svg || true
           git commit -m "chore: update C & C++ radial charts [skip ci]" || echo "No changes to commit"
           git push origin HEAD:main
 
-      # 7) Debug listing
       - name: List generated files
-        run: ls -la radial-*.svg || echo "No radial charts generated"
+        run: ls -la .github/radial-*.svg || echo "No radial charts generated"
