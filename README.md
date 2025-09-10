@@ -13,13 +13,21 @@
 
 ## 👨‍💻 About Me
 
-- 🎓 B.Sc. in Electronics and Communications Engineering, Fayoum University (2016–2021)
-- 🛠️ Embedded Software Developer with hands-on experience in:
-  - AUTOSAR modules (DCM, NVM, COM)
-  - Static analysis (MISRA C, KlocWork)
-  - Multithreading and modern C++ (C++11/14/17)
-  - RTOS (TI-RTOS), Embedded Linux, and Yocto
-- 🔍 Passionate about low-level systems, real-time performance, and software quality.
+🎓 Graduate in Electronics and Communications Engineering (2016–2021)
+
+🛠️ I work as an Embedded Software Developer, building systems close to the hardware. My experience includes:
+
+Developing AUTOSAR modules like DCM, NVM, and COM
+
+Working with OSEK-based systems, RTOS (TI-RTOS), and Embedded Linux/Yocto
+
+Ensuring software quality with MISRA C and KlocWork
+
+Writing robust, efficient code in C and modern C++ (11/14/17)
+
+🔍 I’m passionate about real-time systems, performance optimization, and building reliable embedded platforms.
+
+💡 Always curious about blending low-level programming, Linux platforms, and AUTOSAR/OSEK standards into efficient embedded solutions.
 
 ## 🔧 Skills & Technologies
 
