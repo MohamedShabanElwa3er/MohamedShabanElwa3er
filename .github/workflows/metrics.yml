@@ -26,10 +26,10 @@ jobs:
       - name: Install dependencies
         run: pip install matplotlib
 
-      # 4) Remove old radial charts (ignore if not exist)
+      # 4) Remove old radial charts
       - name: Remove old radial charts
         run: |
-          git rm -f --ignore-unmatch radial-c.svg radial-cpp.svg radial-all.svg || true
+          git rm -f --ignore-unmatch radial-c.svg radial-cpp.svg || true
 
       # 5) Generate new radial charts
       - name: Generate new radial charts
