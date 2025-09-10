@@ -19,45 +19,127 @@
 
 💡 Building expertise across AUTOSAR, OSEK/RTOS, and Embedded Linux (Yocto, drivers, system customization)
 
-💼 Experience
+---
 
-Valeo Egypt — Embedded Software Engineer (Internship)
-📅 Dec 2023 – May 2025
+## 💼 Experience — Valeo Egypt
+**Software Engineer (Internship)** | Dec 2023 – May 2025
 
-Designed, implemented, and configured embedded software components in C/C++, including AUTOSAR modules (DCM, NVM, COM)
+- **Embedded Systems Development**
+  
+  ▪ Designed, implemented, and configured embedded software components in **C/C++**, including **AUTOSAR modules** (DCM, NVM, COM).  
+  ▪ Supported **3 OEM projects** (Stellantis, PSA, RSA) by resolving **MISRA C violations** and ensuring compliance with **safety-critical standards**.  
+  ▪ Developed **C++ modules** with focus on **performance, memory efficiency, and robust architecture**.  
+  ▪ Applied **multithreading techniques** (mutexes, semaphores) and resolved **race conditions**.  
+  ▪ Used **modern C++ (C++11/14/17)** features: smart pointers, lambdas, STL, RAII.  
+  ▪ Applied **OOP principles**: encapsulation, inheritance, polymorphism, abstraction.
 
-Supported 3 OEM projects (Stellantis, PSA, RSA) by resolving MISRA C violations and ensuring compliance with safety-critical standards
+- **Unit Testing**
+  
+  ▪ Designed and executed **unit tests** using **VectorCAST**.  
+  ▪ Analyzed **test results and coverage metrics** to identify and resolve issues.  
+  ▪ Ensured compliance with **system and safety requirements**.
 
-Developed modern C++ modules with focus on performance optimization, memory efficiency, and robust architecture (C++11/14/17: STL, RAII, smart pointers, lambdas)
+- **Static Analysis**
+  
+  ▪ Used **static analysis tools** to detect bugs, vulnerabilities, and coding violations.  
+  ▪ Improved **code quality and reliability** by early detection of issues.
 
-Applied multithreading techniques (mutexes, semaphores) to resolve race conditions and synchronization issues
+- **Debugging and Issue Resolution**
+  
+  ▪ Applied advanced **debugging techniques** to resolve software defects.  
+  ▪ Conducted **task timing analysis** using **Saleae Logic Analyzer** to optimize execution times.
 
-Designed and executed unit tests using VectorCAST for embedded C/C++ modules
+- **Tools & Platforms**
+  
+  ▪ **DaVinci Developer / DaVinci Configurator** for AUTOSAR development.  
+  ▪ **C/C++, static analysis tools, multithreading, memory management, real-time debugging.**  
 
-Performed static analysis (KlocWork, MISRA) to detect bugs, vulnerabilities, and coding violations early in development
+---
 
-Conducted timing analysis using Saleae Logic Analyzer and advanced debugging for real-time optimization
+## 📚 Professional Training & Courses
 
-Tools & Platforms: DaVinci Developer/Configurator, C/C++, Embedded Linux, Yocto, static analysis tools, real-time debugging
+### **Digital Egypt Youth Initiative – NTI, New Capital**  
+*Automotive Embedded Systems 4-Month Track* | Jun 2023 – Sep 2023  
 
-📚 Training & Certifications
+**Technical Modules (188 hrs):**  
+- AVR Peripherals (ATmega32)  
+- ARM Core Peripherals (NVIC, SysTick)  
+- Software Development Life Cycle (SDLC)  
+- Good knowledge of AUTOSAR  
 
-Digital Egypt Youth Initiative – NTI (Automotive Embedded Systems Track, 4 months)
-📅 Jun 2023 – Sep 2023
+**Business Skills Modules (188 hrs):**  
+- Soft Skills training & Business English  
+- Project Management & Freelancing  
 
-AVR peripherals (ATmega32), ARM peripherals (NVIC, SysTick), AUTOSAR basics, SDLC
+---
 
-Business skills: Soft skills, Business English, Project Management, Freelancing
+### **Full Embedded Linux Diploma** | Jan 2024 – Apr 2024  
+- Linux Fundamentals  
+- Embedded Linux Development Tools  
+- Yocto Project and Build Systems  
+- Device Drivers  
+- Embedded Linux Customization  
+- Embedded Linux Application Development  
 
-Full Embedded Linux Diploma
-📅 Jan 2024 – Apr 2024
+---
 
-Linux Fundamentals, Yocto Project, device drivers, embedded Linux customization, application development
+### **Full Embedded Systems Diploma** | Mar 2023 – Jun 2023  
+- C Programming & Embedded C  
+- AVR MCU Peripherals (ADC, Timer, DIO)  
+- Knowledge of Real-Time Operating Systems  
+- Knowledge of SDLC  
 
-Full Embedded Systems Diploma
-📅 Mar 2023 – Jun 2023
+---
 
-C/Embedded C, AVR MCU peripherals (ADC, Timer, DIO), RTOS basics, SDLC
+## 🛠️ Projects
+
+- **Linux Image Customization & Network Boot on Raspberry Pi 3B+ with U-Boot**  
+  ▪ Features: Created a custom Yocto-based Linux distribution and machine configuration for Raspberry Pi 3B+. Modified U-Boot to enable Ethernet support for NFS/TFTP-based root filesystem.  
+  ▪ Technical Focus: Hands-on experience with U-Boot internals, device tree configuration, Yocto recipe customization, and network boot setup.  
+
+- **Linux Device Driver – LED Control**  
+  ▪ Features: Developed a Linux kernel driver to control an LED.  
+  ▪ Technical Focus: Practiced kernel module programming, GPIO control, and memory mapping.  
+
+- **Vehicle Tracking System Using TI RTOS (TM4C123G6)**  
+  ▪ Features: Implemented a Vehicle Tracking System using TI-RTOS for real-time task scheduling. Integrated GPS (NEO-6M) and GSM (800L) modules for real-time tracking and remote communication.  
+  ▪ Technical Focus: Embedded real-time application development, sensor integration, and RTOS scheduling.  
+
+- **Task Manager CLI App (C++)**  
+  ▪ Features: Built a CLI app to add, delete, update, and display tasks with input validation.  
+  ▪ Technical Focus: Practiced **modern C++17**, object-oriented design, and file handling.  
+
+---
+
+## 💻 Technical Skills
+
+- Proficient in **C** and **Embedded C**  
+- Proficient in **C++** with strong understanding of **OOP**  
+- ARM Cortex M3 & M4 microcontrollers  
+- AVR MCU Peripherals (ADC, Timer, EEPROM, DIO)  
+- Communication Protocols: UART, SPI, I2C, CAN, CAN FD, LIN, UDS  
+- AUTOSAR knowledge (Memory Stack, COM Stack, Diagnostic Stack)  
+- Linux environment & Embedded Linux development  
+- OSEK RTOS knowledge  
+- Basic knowledge of **CAPL Language**  
+- RTOS development  
+
+---
+
+## 🛠️ Tools & IDEs
+
+- Canoe  
+- Git  
+- Saleae Logic Analyzer  
+- DaVinci Developer & Configurator  
+- Jenkins  
+- VS Code  
+- DOORS  
+- Eclipse  
+- VectorCAST  
+- KlocWork  
+
+---
 
 ## 🔧 Skills & Technologies
 
