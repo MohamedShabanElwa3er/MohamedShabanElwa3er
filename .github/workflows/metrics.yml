@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: "0 0 * * *"
 
+permissions:
+  contents: write   # ✅ allow committing generated files
+
 jobs:
   c-metrics:
     runs-on: ubuntu-latest
