@@ -12,6 +12,8 @@
 
 ## 👨‍💻 About Me
 
+As a Junior Embedded Software Engineer, I specialize in creating innovative solutions that integrate hardware and software to create seamless products. With a background in computer engineering and experience in programming microcontrollers, debugging embedded systems, and optimizing code for performance, I offer valuable skills to any team. I have a good understanding of electronics, and a passion for tackling complex challenges. I am constantly seeking new opportunities to grow professionally and personally. Let's connect and explore how we can work together to add to technology in the field of embedded systems.
+
 🎓 B.Sc. in Electronics and Communications Engineering – Fayoum University (2016–2021)
 
 🔍 Passionate about low-level programming, real-time performance, and software quality in safety-critical embedded systems
