@@ -169,12 +169,3 @@ As a Junior Embedded Software Engineer, I specialize in creating innovative solu
 </p>
 
 ---
-
-## 🎯 The Usage Percentage of Programming Languages in Projects
-
-<p align="center">
-  <img src="./radial-c.svg?refresh=1" alt="C Language Usage" width="200" style="display:inline-block; margin-right: 20px;"/>
-  <img src="./radial-cpp.svg?refresh=1" alt="C++ Language Usage" width="200" style="display:inline-block;"/>
-</p>
-
-![visitors](https://komarev.com/ghpvc/?username=MohamedShabanElwa3er&label=PROFILE+VIEWS&style=flat-square)
