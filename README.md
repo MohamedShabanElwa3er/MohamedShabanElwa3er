@@ -158,14 +158,40 @@ As a Junior Embedded Software Engineer, I specialize in creating innovative solu
 
 ---
 
-## 📊 GitHub Stats
+## 📊 GitHub Analytics
 
+<!-- Activity Graph -->
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=MohamedShabanElwa3er&show_icons=true&theme=tokyonight" />
-<!--   <br /> -->
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=MohamedShabanElwa3er&theme=tokyonight" />
-  <br />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=MohamedShabanElwa3er&layout=compact&theme=tokyonight" />
+  <img 
+       src="https://github-readme-activity-graph.vercel.app/graph?username=MohamedShabanElwa3er&theme=redical&hide_border=true&area=true&radius=15"
+       width="100%"
+  />
+</p>
+
+<br>
+
+<!-- Main Stats -->
+<p align="center">
+  <img 
+       src="https://github-readme-stats.vercel.app/api?username=MohamedShabanElwa3er&show_icons=true&count_private=true&theme=radical&hide_border=true&border_radius=15&include_all_commits=true"
+       height="170"
+  />
+  <img 
+       src="https://github-contributor-stats.vercel.app/api?username=MohamedShabanElwa3er&limit=5&theme=radical&hide_border=true&border_radius=15"
+       height="170"
+  />
+</p>
+
+<!-- Languages & Metrics -->
+<p align="center">
+  <img 
+       src="https://github-readme-stats.vercel.app/api/top-langs/?username=MohamedShabanElwa3er&layout=compact&theme=radical&hide_border=true&border_radius=10"
+       height="170"
+</p>
+
+<!-- Fancy Section Divider -->
+<p align="center">
+  <img src="https://github.com/Platane/snk/raw/output/github-contribution-grid-snake-dark.svg" width="100%" />
 </p>
 
 ---
