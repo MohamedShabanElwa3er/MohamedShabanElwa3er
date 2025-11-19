@@ -170,24 +170,24 @@ As a Junior Embedded Software Engineer, I specialize in creating innovative solu
 
 <br>
 
-<!-- Main Stats -->
+<h3 align="center">🔥 My GitHub Contributions Summary 🔥</h3>
+
+<p align="center">
+  <a href="https://git.io/streak-stats">
+    <img 
+      src="https://github-readme-streak-stats.herokuapp.com?user=MohamedShabanElwa3er&theme=dark&ring=fb4362&fire=fb4362&currStreakNum=fb4362&currStreakLabel=fb4362&hide_border=true" 
+      alt="GitHub Streak Stats"
+    />
+  </a>
+</p>
+
 <p align="center">
   <img 
-       src="https://github-readme-stats.vercel.app/api?username=MohamedShabanElwa3er&show_icons=true&count_private=true&theme=radical&hide_border=true&border_radius=15&include_all_commits=true"
-       height="170"
-  />
-  <img 
-       src="https://github-contributor-stats.vercel.app/api?username=MohamedShabanElwa3er&limit=5&theme=radical&hide_border=true&border_radius=15"
-       height="170"
+    src="https://github-readme-stats.vercel.app/api?username=MohamedShabanElwa3er&hide_border=true&show_icons=true&bg_color=151515&title_color=fb4362&icon_color=fb4362&text_bold=false&text_color=9e9e9e" 
+    alt="GitHub Stats"
   />
 </p>
 
-<!-- Languages & Metrics -->
-<p align="center">
-  <img 
-       src="https://github-readme-stats.vercel.app/api/top-langs/?username=MohamedShabanElwa3er&layout=compact&theme=radical&hide_border=true&border_radius=10"
-       height="170"
-</p>
 
 <!-- Fancy Section Divider -->
 <p align="center">
